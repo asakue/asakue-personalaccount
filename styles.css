@@ -1,0 +1,189 @@
+:root {
+  --primary-color: #4A90E2;
+  --primary-hover: #357ABD;
+  --text-dark: #2c3e50;
+  --text-light: #ecf0f1;
+  --bg-light: #f8f9fa;
+  --bg-dark: #1a1a1a;
+  --transition: all 0.3s ease;
+  --border-radius: 12px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --gradient-light: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  --gradient-dark: linear-gradient(-45deg, #1a1a1a, #333, #0d0d0d, #1a1a1a);
+}
+  
+  /* Общие стили */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden; 
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: var(--gradient-light);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 1rem;
+    color: var(--text-dark);
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Анимация фона */
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Контейнеры */
+  .login-container,
+  .dashboard-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem;
+    transition: var(--transition);
+  }
+  
+  /* Заголовки */
+  h1, h2, h3, h4 {
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  /* Формы */
+  .input-group {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+  
+  input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+  }
+  
+  /* Кнопки */
+  button {
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+  }
+  
+  button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    html { font-size: 14px; }
+  
+    .dashboard-content {
+      flex-direction: column;
+    }
+  
+    .profile-section,
+    .main-section {
+      width: 100%;
+      padding: 0;
+      border: none;
+    }
+  
+    .profile-section {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .tablinks {
+      width: 100%;
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .login-container,
+    .dashboard-container {
+      padding: 1.5rem;
+      margin: 0.5rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Темная тема */
+  body.dark-theme {
+    background: var(--gradient-dark);
+    color: var(--text-light);
+  }
+  
+  body.dark-theme .login-container,
+  body.dark-theme .dashboard-container {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  body.dark-theme input,
+  body.dark-theme .chat-messages,
+  body.dark-theme .chat-input input {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+  }
+  
+  body.dark-theme input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Утилиты */
+  .hidden { display: none !important; }
+  .text-center { text-align: center; }
+  .mb-1 { margin-bottom: 0.5rem; }
+  .mb-2 { margin-bottom: 1rem; }
+  .mb-3 { margin-bottom: 1.5rem; }

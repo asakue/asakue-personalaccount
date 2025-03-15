@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h1>Ваш личный кабинет</h1>
+      <label class="switch">
+        <input type="checkbox" id="theme-switch">
+        <span class="slider round"></span>
+      </label>
+    </header>
+    <div class="dashboard-content">
+      <div class="profile-section">
+        <a href="https://example.com/user-profile" target="_blank" class="avatar-link">
+          <img src="https://i.pinimg.com/736x/a1/8a/f4/a18af44ac31ad2c2fdccb5ef9ac806be.jpg" alt="Аватар пользователя" class="avatar">
+        </a>
+        <div class="personal-info">
+          <h2>Иван Иванов</h2>
+          <p>ID: 123456</p>
+          <p class="bio">Описание: Студент, увлекающийся программированием и веб-разработкой.</p>
+        </div>
+        <div class="modal-overlay" id="modalOverlay">
+          <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h3 class="modal-title"></h3>
+            <div class="modal-content"></div>
+          </div>
+        </div>
+        <div class="academic-info">
+          <h3>Академическая информация</h3>
+          <p><i class="fas fa-university"></i> Факультет: Информационных технологий</p>
+          <p><i class="fas fa-users"></i> Группа: ИТ-101</p>
+          <p><i class="fas fa-calendar-alt"></i> Курс: 3</p>
+        </div>
+      </div>
+      <div class="main-section">
+        <div class="tabs">
+          <button class="tablinks active" onclick="openTab(event, 'News')">Новости</button>
+          <button class="tablinks" onclick="openTab(event, 'Chat')">Чат</button>
+        </div>
+        <div id="News" class="tabcontent" style="display: block;">
+          <h3>Новости</h3>
+          <div class="news-item" data-news-id="1">
+            <h4>Новость 1</h4>
+            <p>Сегодня в университете прошел семинар по веб-разработке.</p>
+          </div>
+          <div class="news-item" data-news-id="2">
+            <h4>Новость 2</h4>
+            <p>Завтра состоится встреча студенческого совета.</p>
+          </div>
+          <div class="news-item" data-news-id="3">
+            <h4>Новость 3</h4>
+            <p>На следующей неделе начнутся экзамены. Удачи всем студентам!</p>
+          </div>
+        </div>
+        <div id="Chat" class="tabcontent">
+          <h3>Чат</h3>
+          <div class="chat-search">
+            <input type="text" placeholder="Поиск пользователей">
+          </div>
+          <div class="chat-messages">
+            <div class="message">
+              <p><strong>Петр Петров:</strong> Привет, как дела?</p>
+            </div>
+            <div class="message">
+              <p><strong>Иван Иванов:</strong> Привет, все хорошо, спасибо!</p>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input type="text placeholder="Введите сообщение">
+            <button>Отправить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <a href="https://github.com/asakue" target="_blank" class="footer-link">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-logo">
+      <span>by asakue</span>
+    </a>
+  </footer>
+</body>
+</html>

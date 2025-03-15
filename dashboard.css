@@ -1,0 +1,500 @@
+/* dashboard.css */
+
+/* Основной контейнер */
+.dashboard-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+/* Заголовок */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* Переключатель темы */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4A90E2;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4A90E2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Основной контент */
+.dashboard-content {
+  display: flex;
+  gap: 30px;
+}
+
+/* Секция профиля */
+.profile-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-link {
+  display: block;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.avatar-link:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4A90E2;
+}
+
+.personal-info {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: rgba(74, 144, 226, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.personal-info h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.bio {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.academic-info {
+  width: 100%;
+  padding: 20px;
+  background: rgba(74, 144, 226, 0.1);
+  border-radius: 8px;
+  border-top: 3px solid #4A90E2;
+}
+
+.academic-info h3 {
+  color: #4A90E2;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.academic-info p {
+  margin: 12px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 600px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #dcdcdc;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #2d5693;
+}
+
+.modal-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-content {
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Основная секция */
+.main-section {
+  width: 70%;
+  padding-left: 20px;
+}
+
+/* Вкладки */
+.tabs {
+  margin-bottom: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+.tablinks {
+  background-color: #4A90E2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.tablinks:hover {
+  background-color: #357ABD;
+  transform: translateY(-2px);
+}
+
+.tablinks.active {
+  background-color: #357ABD;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Контент вкладок */
+.tabcontent {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Новости */
+.news-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.news-item:hover {
+  background-color: rgba(74, 144, 226, 0.05);
+  transform: translateX(5px);
+}
+
+.news-item h4 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Чат */
+.chat-search input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.chat-messages {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.chat-input button {
+  padding: 12px 24px;
+}
+
+/* Темная тема */
+body.dark-theme .dashboard-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+}
+
+body.dark-theme .dashboard-header h1 {
+  color: #fff;
+}
+
+body.dark-theme .personal-info,
+body.dark-theme .academic-info {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .academic-info p {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+body.dark-theme .news-item {
+  border-color: #444;
+}
+
+body.dark-theme .news-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .chat-messages {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: #444;
+}
+
+body.dark-theme .message {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 95%;
+    padding: 20px;
+    margin: 10px auto;
+  }
+
+  .dashboard-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .profile-section,
+  .main-section {
+    width: 100%;
+    padding: 0;
+  }
+
+  .profile-section {
+    text-align: center;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tablinks {
+    width: 100%;
+  }
+
+  .chat-messages {
+    height: 200px; 
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .personal-info, .academic-info {
+    padding: 10px;
+  }
+
+  .bio {
+    font-size: 0.8rem;
+  }
+
+  .tablinks {
+    font-size: 14px;
+  }
+
+  .news-item h4 {
+    font-size: 1rem;
+  }
+}
+/* Футер */
+.footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+  width: 100%; 
+  max-width: 800px; 
+  margin: 0 auto; 
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 0; 
+  right: 0; 
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #4A90E2;
+  transform: translateY(-2px);
+}
+
+.github-logo {
+  width: 20px;
+  height: 20px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.footer-link:hover .github-logo {
+  filter: grayscale(0%);
+}
+
+/* Темная тема для футера */
+body.dark-theme .footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-top-color: #444;
+}
+
+body.dark-theme .footer-link {
+  color: #fff;
+}
+
+body.dark-theme .footer-link:hover {
+  color: #4A90E2;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 95%;
+    padding: 20px;
+    margin: 10px auto;
+  }
+
+  .footer {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-link {
+    font-size: 12px;
+  }
+
+  .github-logo {
+    width: 16px;
+    height: 16px;
+  }
+}
